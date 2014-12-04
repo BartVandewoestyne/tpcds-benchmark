@@ -42,6 +42,19 @@ do
   echo "Making HDFS directory ${HDFS_DIR}/scale_factor_${SF}/${t}"
   hdfs dfs -mkdir -p ${HDFS_DIR}/scale_factor_${SF}/${t}
 
-  echo "Copying data file into ${HDFS_DIR}/scale_factor_${SF}/${t}"
-  hdfs dfs -copyFromLocal $LOCAL_DATA_DIR/scale_factor_${SF}/${t}*.dat ${HDFS_DIR}/scale_factor_${SF}/${t}
+  if [ "$PARALLEL" = "true" ]; then
+    echo "Copying data files into ${HDFS_DIR}/scale_factor_${SF}/${t}"
+    for (( chunk=1; chunk<=$NBCHUNKS; ++chunk ))
+    do
+      localchunk=$LOCAL_DATA_DIR/scale_factor_${SF}/${t}_${chunk}_${NBCHUNKS}.dat
+      if [ -f $localchunk ]; then
+        hdfs dfs -copyFromLocal $localchunk ${HDFS_DIR}/scale_factor_${SF}/${t}
+      fi
+    done
+  else
+    echo "Copying data file into ${HDFS_DIR}/scale_factor_${SF}/${t}"
+    hdfs dfs -copyFromLocal $LOCAL_DATA_DIR/scale_factor_${SF}/${t}.dat ${HDFS_DIR}/scale_factor_${SF}/${t}
+  fi 
 done
+
+hdfs dfs -ls -R ${HDFS_DIR}/scale_factor_${SF}/*

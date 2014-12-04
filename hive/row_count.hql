@@ -1,0 +1,20 @@
+use ${hivevar:dbname};
+
+insert overwrite local directory 'rowcounts/store'                  select "store",                  count(*) from store;
+insert overwrite local directory 'rowcounts/call_center'            select "call_center",            count(*) from call_center;
+insert overwrite local directory 'rowcounts/catalog_page'           select "catalog_page",           count(*) from catalog_page;
+insert overwrite local directory 'rowcounts/web_site'               select "web_site",               count(*) from web_site;
+insert overwrite local directory 'rowcounts/web_page'               select "web_page",               count(*) from web_page;
+insert overwrite local directory 'rowcounts/warehouse'              select "warehouse",              count(*) from warehouse;
+insert overwrite local directory 'rowcounts/customer'               select "customer",               count(*) from customer;
+insert overwrite local directory 'rowcounts/customer_address'       select "customer_address",       count(*) from customer_address;
+insert overwrite local directory 'rowcounts/customer_demographics'  select "customer_demographics",  count(*) from customer_demographics;
+insert overwrite local directory 'rowcounts/date_dim'               select "date_dim",               count(*) from date_dim;
+insert overwrite local directory 'rowcounts/household_demographics' select "household_demographics", count(*) from household_demographics;
+insert overwrite local directory 'rowcounts/item'                   select "item",                   count(*) from item;
+insert overwrite local directory 'rowcounts/income_band'            select "income_band",            count(*) from income_band;
+insert overwrite local directory 'rowcounts/promotion'              select "promotion",              count(*) from promotion;
+insert overwrite local directory 'rowcounts/reason'                 select "reason",                 count(*) from reason;
+insert overwrite local directory 'rowcounts/ship_mode'              select "ship_mode",              count(*) from ship_mode;
+insert overwrite local directory 'rowcounts/time_dim'               select "time_dim",               count(*) from time_dim;
+--insert overwrite local directory 'rowcounts/dbgen_version'          select "dbgen_version",          count(*) from dbgen_version;
