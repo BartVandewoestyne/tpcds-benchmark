@@ -39,9 +39,9 @@ tables=( call_center
 hdfs dfs -mkdir -p $HDFS_DIR
 for t in "${tables[@]}"
 do
-  echo "Making HDFS directory ${HDFS_DIR}/SCALE_FACTOR_${SF}/${t}"
-  hdfs dfs -mkdir -p ${HDFS_DIR}/SCALE_FACTOR_${SF}/${t}
+  echo "Making HDFS directory ${HDFS_DIR}/scale_factor_${SF}/${t}"
+  hdfs dfs -mkdir -p ${HDFS_DIR}/scale_factor_${SF}/${t}
 
-  echo "Copying data file into ${HDFS_DIR}/SCALE_FACTOR_${SF}/${t}"
-  hdfs dfs -copyFromLocal $LOCAL_DATA_DIR/SCALE_FACTOR_${SF}/${t}.dat ${HDFS_DIR}/SCALE_FACTOR_${SF}/${t}
+  echo "Copying data file into ${HDFS_DIR}/scale_factor_${SF}/${t}"
+  hdfs dfs -copyFromLocal $LOCAL_DATA_DIR/scale_factor_${SF}/${t}*.dat ${HDFS_DIR}/scale_factor_${SF}/${t}
 done
