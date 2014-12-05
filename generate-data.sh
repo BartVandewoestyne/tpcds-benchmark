@@ -5,7 +5,7 @@
 
 source tpcds-env.sh
 
-cd "${TOOLPATH}"
+cd "${TPCDS_DIR}/tools"
 
 mkdir -p $LOCAL_DATA_DIR/scale_factor_$SF
 

@@ -1,7 +1,9 @@
 ### User configurable variables.
 
+export TPCDS_DIR="/tmp/tpcds/TPC-DS_v1.3.0"
+
 # Path with the official copy of the TPC-DS tools.
-export TOOLPATH="/tmp/tpcds/TPC-DS v1.3.0/tools/"
+export TOOLPATH="/tmp/tpcds/TPC-DS_v1.3.0/tools/"
 
 # Output directory where you locally store the generated TPC-DS data.
 export LOCAL_DATA_DIR=/home/$USER/tpc-ds-data
