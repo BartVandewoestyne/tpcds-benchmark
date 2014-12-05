@@ -1,3 +1,5 @@
+USE ${env:dbname};
+
 DROP TABLE IF EXISTS call_center;
 DROP TABLE IF EXISTS catalog_page;
 DROP TABLE IF EXISTS catalog_returns;
@@ -23,3 +25,5 @@ DROP TABLE IF EXISTS web_page;
 DROP TABLE IF EXISTS web_returns;
 DROP TABLE IF EXISTS web_sales;
 DROP TABLE IF EXISTS web_site;
+
+DROP DATABASE IF EXISTS ${env:dbname};
